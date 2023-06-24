@@ -4,7 +4,7 @@ import { UserModule } from './users/user.module';
 
 
 @Module({
-  imports: [UserModule, ProductModule],
+  imports: [UserModule],
   controllers: [],
   providers: [],
 })
