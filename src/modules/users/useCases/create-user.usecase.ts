@@ -1,3 +1,4 @@
+import { PrismaService } from "src/infra/database/prisma.service";
 
 export type CreateUserDTO = {
     username: string;
@@ -8,6 +9,8 @@ export type CreateUserDTO = {
 
 
 export class CreateUserUseCase {
+    constructor(private prisma: PrismaService){}
+
     async execute(data: CreateUserDTO){
 
     }
