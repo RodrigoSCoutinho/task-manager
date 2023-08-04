@@ -7,6 +7,7 @@ import { Body, Controller, Post } from "@nestjs/common";
 
 export class UserController {
   constructor(private readonly createUserUseCase: CreateUserUseCase){}
+  
    @Post()
    async create(@Body() data: CreateUserDTO){
       return await this.createUserUseCase.execute(data);
