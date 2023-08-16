@@ -11,11 +11,8 @@ export class CreateUserUseCase {
     async execute(data: CreateUserDTO){
       const user = this.prisma.user.findFirst({
         where: {
-            OR: [
-                {username: data.username},
-                {email: data.email}
-            ]
-        },
+            OR: [{ username: data.username }, { email: data.email }]
+         },
       });
 
       if(user){
@@ -29,7 +26,6 @@ export class CreateUserUseCase {
       return await this.prisma.user.create({
          ...data,
          password: passwordHashed,
-      })
-
+      });
     }
 }
