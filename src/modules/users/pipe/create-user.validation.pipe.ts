@@ -1,11 +1,21 @@
-import { ArgumentMetadata, Injectable, PipeTransform } from "@nestjs/common";
+import { ArgumentMetadata, HttpException, HttpStatus, Injectable, PipeTransform } from "@nestjs/common";
+import { CreateUserDTO } from "../dto/user.dto";
 
 @Injectable()
 export class CreateUserValidationPipe implements PipeTransform {
-    transform(value: any, metadata: ArgumentMetadata) {
-        console.log(`Value: ${JSON.stringify(value)}`)
-        console.log(`Metadata: ${JSON.stringify(metadata)}`)
-        throw new Error("Method not implemented.");
+    transform({name, email, username, password}: CreateUserDTO, metadata: ArgumentMetadata) {
+
+        if(!name || email || password) {
+            throw new HttpException(`[name, email, username, password] is required`,
+            HttpStatus.UNPROCESSABLE_ENTITY);
+        }
+
+        return { 
+            name, 
+            email,
+            username,
+            password
+        }
     }
 
 }

@@ -3,9 +3,7 @@ import { CreateUserValidationPipe } from './pipe/create-user.validation.pipe';
 import { CreateUserUseCase } from './useCases/create-user.usecase';
 import { Body, Controller, Post, UsePipes } from "@nestjs/common";
 
-
-@Controller("/users")
-
+@Controller('/users')
 export class UserController {
   constructor(private readonly createUserUseCase: CreateUserUseCase){}
   

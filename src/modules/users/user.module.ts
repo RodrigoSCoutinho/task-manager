@@ -9,6 +9,4 @@ import { Module } from "@nestjs/common";
     providers: [CreateUserUseCase, PrismaService],
 })
 
-export class UserModule {
-
-}
+export class UserModule {}
