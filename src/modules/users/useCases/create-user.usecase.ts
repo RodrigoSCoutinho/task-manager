@@ -15,9 +15,9 @@ export class CreateUserUseCase {
          },
       });
 
-      // if(user){
-      //   throw new HttpException("User already exists!", HttpStatus.BAD_REQUEST);
-      // }
+      if(user){
+        throw new HttpException("User already exists!", HttpStatus.BAD_REQUEST);
+      }
 
       const passwordHashed = await hash(data.password, 10)
 
