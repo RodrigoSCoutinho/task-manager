@@ -15,13 +15,6 @@ export class CreateUserUseCase {
          email: data.email
       });
 
-      // await this.prisma.user.findFirst({
-      //      where: {
-      //          OR: [{ username: data.username }, { email: data.email }]
-      //     },
-      // });
-    
-
       if(user){
         throw new HttpException("User already exists!", HttpStatus.BAD_REQUEST);
       }
@@ -32,12 +25,5 @@ export class CreateUserUseCase {
          ...data,
          password
       })
-
-      // return await this.prisma.user.create({
-      //    data: {
-      //     ...data,
-      //     password: passwordHashed,
-      //    }
-      // });
     }
 }
